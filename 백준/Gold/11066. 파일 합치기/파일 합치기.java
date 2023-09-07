@@ -1,15 +1,19 @@
 import java.io.*;
 import java.util.StringTokenizer;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 	
 	static int[] arr;
 	static int[] sum;
 	static int[][] dp;
+	static List<Integer> result;
 	
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
+		result = new ArrayList<>();
 		int T = Integer.parseInt(br.readLine());
 		for (int tc=0;tc<T;tc++) {
 			
@@ -31,11 +35,9 @@ public class Main {
 				}
 			}
 			
-			
-			sb.append(dp[1][K]).append("\n");
+			result.add(dp[1][K]);
 		}
 		
-		System.out.println(sb);
-		
+		for (int c: result) System.out.println(c);
 	}
 }
