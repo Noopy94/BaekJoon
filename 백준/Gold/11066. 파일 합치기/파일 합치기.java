@@ -1,6 +1,11 @@
 import java.io.*;
 import java.util.StringTokenizer;
 public class Main {
+	
+	static int[] arr;
+	static int[] sum;
+	static int[][] dp;
+	
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -9,9 +14,9 @@ public class Main {
 		for (int tc=0;tc<T;tc++) {
 			
 			int K = Integer.parseInt(br.readLine());
-			int[] arr = new int[K+1];
-			int[] sum = new int[K+1];
-			int[][] dp = new int[K+1][K+1];
+			arr = new int[K+1];
+			sum = new int[K+1];
+			dp = new int[K+1][K+1];
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			for (int i=1;i<=K;i++) {
 				arr[i] = Integer.parseInt(st.nextToken());
@@ -24,8 +29,9 @@ public class Main {
 					dp[from][to] = Integer.MAX_VALUE;
 					for (int divide = from; divide<to; divide++) dp[from][to] = Math.min(dp[from][to], dp[from][divide]+dp[divide+1][to]+sum[to]-sum[from-1]);
 				}
-				
 			}
+			
+			
 			sb.append(dp[1][K]).append("\n");
 		}
 		
