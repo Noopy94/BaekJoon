@@ -7,9 +7,9 @@ class Solution {
         for (int i=0;i<dif;i++){
             
             long k= i+left;
-            long x = k/n;
-            long y = k%n;
-            answer[i] = (int)Math.max(x,y)+1;
+            int x = (int)(k/n);
+            int y = (int)(k%n);
+            answer[i] = Math.max(x,y)+1;
             
         }
         
